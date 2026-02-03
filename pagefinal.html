@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Notre séjour ✨</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffb6c1, #ffc3a0);
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+        a {
+      text-decoration: none;
+      color: #ff4d6d;
+      background: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+        a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+
+    .container {
+      animation: fadeIn 1.5s ease;
+      max-width: 90%;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .photo {
+      width: 320px;
+      height: 320px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 6px solid white;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Voici un petit aperçu de notre séjour ✨💑</h1>
+    <p>On va faire un voyage rapide dans un pays lointain</p>
+
+    <div class="photo">
+      <!-- Remplace sejour.jpg par la photo de votre séjour -->
+      <img src="img/kyoto.jpg" alt="Notre séjour ❤️">
+    </div>
+    <a href="supp.html">Une derniere chose</a>
+  </div>
+
+</body>
+</html>

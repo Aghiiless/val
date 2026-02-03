@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ma Valentine 💘</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+    .heart {
+  position: fixed;
+  top: -20px;
+  font-size: 20px;
+  animation: fall linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+
+    .container {
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 40px;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #yes {
+      background: white;
+      color: #ff4d6d;
+      margin-right: 20px;
+    }
+
+    #no {
+      background: #ff4d6d;
+      color: white;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 30px;
+      font-size: 1.6em;
+      display: none;
+      animation: pop 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Veux-tu être ma Valentine ? 💘</h1>
+
+    <div class="buttons">
+      <button id="yes">Oui 😍</button>
+      <button id="no">Non 😅</button>
+    </div>
+
+    <div id="message">
+      T’avais pas le choix t’façon ! 😎❤️
+    </div>
+  </div>
+
+<script>
+  const noBtn = document.getElementById("no");
+  const yesBtn = document.getElementById("yes");
+  const message = document.getElementById("message");
+
+  function moveNoButton() {
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    // petite vibration
+    noBtn.animate([
+      { transform: "translateX(0)" },
+      { transform: "translateX(-5px)" },
+      { transform: "translateX(5px)" },
+      { transform: "translateX(0)" }
+    ], {
+      duration: 200
+    });
+  }
+
+  noBtn.addEventListener("mouseover", moveNoButton);
+  noBtn.addEventListener("touchstart", moveNoButton);
+
+  // Cœurs qui tombent
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+
+  setInterval(createHeart, 300);
+
+  yesBtn.addEventListener("click", () => {
+    message.style.display = "block";
+
+    setTimeout(() => {
+      window.location.href = "pagefinal.html";
+    }, 1500);
+  });
+</script>
+
+
+
+</body>
+</html>
